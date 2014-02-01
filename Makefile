@@ -1,4 +1,7 @@
-TARBALL = output/release/v8.0.0/bin/apache-tomcat-8.0.0.tar.gz
+TCVER = 8.0.0
+OUTDIR = output/release/v$(TCVER)/bin
+TARBALL = $(OUTDIR)/apache-tomcat-$(TCVER).tar.gz
+DOCTARBALL = $(OUTDIR)/apache-tomcat-$(TCVER)-fulldocs.tar.gz
 PREFIX = /usr
 LIBDIR = lib
 
@@ -25,7 +28,11 @@ test:	all
 	ant test
 
 install: all
+	install -d $(DESTDIR)$(PREFIX)/$(LIBDIR)/jvm $(DESTDIR)$(PREFIX)/share/doc
 	tar -C $(DESTDIR)$(PREFIX)/$(LIBDIR)/jvm -xf $(TARBALL)
+	tar -C $(DESTDIR)$(PREFIX)/share/doc -xf $(DOCTARBALL)
+
+
 
 clean:
 	ant clean
