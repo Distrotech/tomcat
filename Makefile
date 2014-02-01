@@ -1,4 +1,4 @@
-TARBALL = output/release/v8.0.0-dev/bin/apache-tomcat-8.0.0-dev.tar.gz
+TARBALL = output/release/v8.0.0/bin/apache-tomcat-8.0.0.tar.gz
 PREFIX = /usr
 LIBDIR = lib
 
